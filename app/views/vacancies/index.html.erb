@@ -41,7 +41,7 @@
               <hr>
               <!-- BEGIN SEARCH INPUT -->
               <div class="input-group">
-                <input type="text" class="form-control" value="Vaga Ruby">
+                <input type="text" class="form-control" value="" placeholder="Vaga">
                 <span class="input-group-btn">
                   <button class="btn btn-primary mb-0 rounded-0 rounded-end" type="button"><i class="fa fa-search"></i></button>
                 </span>
@@ -68,16 +68,14 @@
               <div class="table-responsive">
                 <table class="table table-striped table-hover">
                   <tbody>
-                    <tr>
-                      <td class="product"><strong>[Remoto] Ruby Developer (Sênior) na Coodesh</strong>
-                      <br>
-                        Esta é uma vaga de um parceiro da plataforma Coodesh, ao candidatar-se você terá acesso as informações completas sobre a empresa e benefícios.</td>
-                    </tr>
-                    <tr>
-                      <td class="product"><strong>[Remoto] Ruby Developer (Sênior) na Coodesh</strong>
-                      <br>
-                        Esta é uma vaga de um parceiro da plataforma Coodesh, ao candidatar-se você terá acesso as informações completas sobre a empresa e benefícios.</td>
-                    </tr>
+                    <% @vacancies.each do |vacancy| %>
+                      <tr>
+                        <td class="product"><strong><%= vacancy.title %></strong>
+                        <br>
+                          <%= truncate(vacancy.body, length: 400, omission: '...') %>
+                        </td>
+                      </tr>
+                    <% end%>
                   </tbody>
                 </table>
               </div>
