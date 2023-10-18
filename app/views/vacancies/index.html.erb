@@ -70,9 +70,10 @@
                   <tbody>
                     <% @vacancies.each do |vacancy| %>
                       <tr>
-                        <td class="product"><strong><%= vacancy.title %></strong>
-                        <br>
-                          <%= truncate(vacancy.body, length: 400, omission: '...') %>
+                        <td class="product"><h4><a href="<%= vacancy.url %>" target="_blank"><%= vacancy.title %></a></h4>
+                        <div class="">
+                          <%= markdown(truncate(vacancy.body, length: 300, omission: '... ')) %>
+                        </div>
                         </td>
                       </tr>
                     <% end%>
