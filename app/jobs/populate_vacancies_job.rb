@@ -17,7 +17,7 @@ class PopulateVacanciesJob < ApplicationJob
           vacancy = Vacancy.new
           vacancy.external_id = issue.id
           vacancy.external_source = key
-          vacancy.url = issue.url
+          vacancy.url = issue.html_url
           vacancy.title = issue.title
           vacancy.user_login = issue.user.login
           vacancy.user_avatar_url = issue.user.avatar_url

@@ -1,7 +1,7 @@
 class VacanciesController < ApplicationController
 
     def index
-        @vacancies = Vacancy.limit(10)
+        @vacancies = Vacancy.limit(6)
     end
 
     def show
