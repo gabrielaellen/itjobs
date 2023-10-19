@@ -74,6 +74,12 @@
                         <div class="">
                           <%= markdown(truncate(vacancy.body, length: 300, omission: '... ')) %>
                         </div>
+                        <div>
+                          <% vacancy.tags.each do |tag| %>
+                          <span class="badge badge-pill " style="background-color:#<%= tag.to_h['color']%>"><%= tag.to_h['name']%></span>
+                          <% end%>
+                        </div>
+
                         </td>
                       </tr>
                     <% end%>
