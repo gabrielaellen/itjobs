@@ -6,7 +6,21 @@ class Vacancy < ApplicationRecord
     'qa-brasil/vagas' => 'QA BR - Vagas'
   }.freeze
 
-    validates :external_id, :external_source, :url, :title, :user_login, :user_avatar_url, :user_profile_url, :labels, :body, presence: true
+  searchkick(
+    batch_size: 10_000,
+  )
+
+  validates :external_id, :external_source, :url, :title, :user_login, :user_avatar_url, :user_profile_url, :labels, :body, presence: true
+
+  def tags
+    JSON.parse(self.labels)
+  end
+
+  def search_data
+    attributes.merge(
+        labels: tags.map(&:to_h).map { |l| l['name'] }
+    )
+  end
 end
 
 
