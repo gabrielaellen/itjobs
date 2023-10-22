@@ -140,6 +140,7 @@ GEM
     octokit (7.2.0)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
+    pagy (6.1.0)
     pg (1.5.4)
     psych (5.1.0)
       stringio
@@ -231,6 +232,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   octokit
+  pagy
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.8)
