@@ -13,12 +13,15 @@ class Vacancy < ApplicationRecord
   validates :external_id, :external_source, :url, :title, :user_login, :user_avatar_url, :user_profile_url, :labels, :body, presence: true
 
   def tags
-    JSON.parse(self.labels)
+    parsed_tag = JSON.parse(labels)
+    parsed_tag.map do |sub_array|
+      sub_array.to_h
+    end
   end
 
   def search_data
     attributes.merge(
-        labels: tags.map(&:to_h).map { |l| l['name'] }
+      labels: tags.map { |l| l["name"] }
     )
   end
 end

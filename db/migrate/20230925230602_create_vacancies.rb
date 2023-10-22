@@ -8,7 +8,7 @@ class CreateVacancies < ActiveRecord::Migration[7.0]
       t.string :user_login, null: false
       t.string :user_avatar_url, null: false
       t.string :user_profile_url, null: false
-      t.jsonb :labels, null: false, default: '{}'
+      t.jsonb :labels, null: false, default: {}
       t.timestamps
     end
   end

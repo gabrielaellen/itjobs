@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_233634) do
     t.string "user_login", null: false
     t.string "user_avatar_url", null: false
     t.string "user_profile_url", null: false
-    t.jsonb "labels", default: "{}", null: false
+    t.jsonb "labels", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "body", null: false
