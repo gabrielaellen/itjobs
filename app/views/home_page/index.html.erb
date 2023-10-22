@@ -3,10 +3,14 @@
     <div class="row height d-flex justify-content-center align-items-center">
       <div class="col-md-6">
         <h1 class=" poppins">VAGAS DE TI</h1>
-        <div class="form">
-          <input type="text" class="form-control form-input" placeholder="Pesquise sua vaga...">
-          <span class="left-pan"><i class="fa fa-search"></i></span>
-        </div>
+        <%= form_with url: vacancies_path, method: :get, local:true do |form| %>
+          <div class="input-group">
+            <%= form.text_field :q, class: "form-control", placeholder: "Pesquise sua vaga", value: params[:q] %>
+            <span class="input-group-btn">
+              <button class="btn btn-light mb-0 rounded-0 rounded-end" type="submit"><i class="fa fa-search"></i></button>
+            </span>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

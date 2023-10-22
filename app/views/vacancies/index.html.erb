@@ -40,14 +40,18 @@
               <h3><i class="fa-regular fa-file"></i> Resultado</h3>
               <hr>
               <!-- BEGIN SEARCH INPUT -->
-              <div class="input-group">
-                <input type="text" class="form-control" value="" placeholder="Vaga">
-                <span class="input-group-btn">
-                  <button class="btn btn-primary mb-0 rounded-0 rounded-end" type="button"><i class="fa fa-search"></i></button>
-                </span>
-              </div>
+              <%= form_with url: vacancies_path, method: :get, local:true do |form| %>
+                <div class="input-group">
+                  <%= form.text_field :q, class: "form-control", placeholder: "Pesquisar...", value: params[:q] %>
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary mb-0 rounded-0 rounded-end" type="submit"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+              <% end %>
               <!-- END SEARCH INPUT -->
-              <p>Exibindo resultados para a pesquisa "Vaga Ruby"</p>
+              <% if params[:q].present? %>
+                <p>Exibindo resultados para a pesquisa "<%= params[:q] %>"</p>
+              <% end %>
               <div class="padding"></div>
               <div class="row">
                 <!-- BEGIN ORDER RESULT -->
