@@ -75,15 +75,16 @@
                     <% @vacancies.each do |vacancy| %>
                       <tr>
                         <td class="product"><h4><a href="<%= vacancy.url %>" target="_blank"><%= vacancy.title %></a></h4>
-                        <div class="">
-                          <%= markdown(truncate(vacancy.body, length: 300, omission: '... ')) %>
-                        </div>
-                        <div>
-                          <% vacancy.tags.each do |tag| %>
-                          <span class="badge badge-pill " style="background-color:#<%= tag.to_h['color']%>"><%= tag.to_h['name']%></span>
-                          <% end%>
-                        </div>
-
+                          <div class="">
+                            <%= markdown(truncate(vacancy.body, length: 300, omission: '... ')) %>
+                          </div>
+                          <div>
+                            <% vacancy.tags.each do |tag| %>
+                              <%= link_to vacancies_path(label: tag['name']), class: "text-decoration-none" do %>
+                                <span class="badge badge-pill " style="background-color:#<%= tag.to_h['color']%>"><%= tag.to_h['name']%></span>
+                              <% end %>
+                            <% end%>
+                          </div>
                         </td>
                       </tr>
                     <% end%>
