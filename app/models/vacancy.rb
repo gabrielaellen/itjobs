@@ -1,6 +1,6 @@
 class Vacancy < ApplicationRecord
   SOURCES = {
-    'frontendbr/vagas' => 'Front-End BR - Vagas',     
+    'frontendbr/vagas' => 'Front-End BR - Vagas',
     'backend-br/vagas' => 'Back-End BR - Vagas',
     'react-brasil/vagas' => 'React BR - Vagas',
     'qa-brasil/vagas' => 'QA BR - Vagas'
@@ -8,6 +8,7 @@ class Vacancy < ApplicationRecord
 
   searchkick(
     batch_size: 10_000,
+    word_start: [:name]
   )
 
   validates :external_id, :external_source, :url, :title, :user_login, :user_avatar_url, :user_profile_url, :labels, :body, presence: true
@@ -25,5 +26,3 @@ class Vacancy < ApplicationRecord
     )
   end
 end
-
-

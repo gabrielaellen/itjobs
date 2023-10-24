@@ -4,6 +4,8 @@ class VacanciesController < ApplicationController
     def index
         @vacancies = VacancySearchPresenter.new(query: params[:q], options: search_params).search
         @pagy = Pagy.new_from_searchkick(@vacancies)
+        @start_date = params[:start_date]
+        @end_date = params[:end_date]
     end
 
     def show

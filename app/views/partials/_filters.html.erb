@@ -1,10 +1,24 @@
 <%
   parameters = params.except(:controller, :action, :page).to_unsafe_h
 %>
-<h3 class="grid-title">VAGAS DE TI</h3>
+<h3 class="grid-title"><%= link_to 'VAGAS DE TI', root_path, class:'black' %></h3>
 <hr>
+<!-- BEGIN FILTER BY DATE -->
+<h5>Data:</h5>
+<%= form_with url: vacancies_path, method: :get, local: true, id: 'dateForm' do |form| %>
+  De
+  <div class="input-group date form_date">
+    <input type="date" name="start_date" class="form-control" id="startDateInput">
+  </div>
+  Para
+  <div class="input-group date form_date">
+    <input type="date" name="end_date"class="form-control" id="endDateInput">
+  </div>
+<% end %>
+<!-- END FILTER BY DATE -->
+
 <!-- BEGIN FILTER BY CATEGORY -->
-<h5>Categoria:</h5>
+<h5 class="pt-3">Categoria:</h5>
 <ul class="list-unstyled">
   <% vacancies.aggs['labels']['buckets'].sort_by{|label| label['doc_count'] }.reverse.each do |label| %>
     <li>
@@ -13,20 +27,3 @@
   <% end %>
 </ul>
 <!-- END FILTER BY CATEGORY -->
-<div class="pt-3"></div>
-<!-- BEGIN FILTER BY DATE -->
-<h5>Data:</h5>
-De
-<div class="input-group date form_date" data-date="2014-06-14T05:25:07Z" data-date-format="dd-mm-yyyy" data-link-field="dtp_input1">
-  <input type="date" class="form-control">
-  <span class="input-group-addon bg-blue"></span>
-</div>
-<input type="hidden" id="dtp_input1" value="">
-Para
-<div class="input-group date form_date" data-date="2014-06-14T05:25:07Z" data-date-format="dd-mm-yyyy" data-link-field="dtp_input2">
-  <input type="date" class="form-control">
-  <span class="input-group-addon bg-blue"></span>
-</div>
-<input type="hidden" id="dtp_input2" value="">
-<!-- END FILTER BY DATE -->
-<div class="padding"></div>
