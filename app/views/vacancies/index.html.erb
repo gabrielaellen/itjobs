@@ -6,12 +6,12 @@
         <div class="grid-body">
           <div class="row">
             <!-- BEGIN FILTERS -->
-            <div class="col-md-3">
+            <div class="col-md-3 vh-100 overflow-auto">
               <%= render "partials/filters", vacancies: @vacancies %>
             </div>
             <!-- END FILTERS -->
             <!-- BEGIN RESULT -->
-            <div class="col-md-9">
+            <div class="col-md-9 vh-100 overflow-auto">
               <h3><i class="fa-regular fa-file"></i> Resultado</h3>
               <hr>
               <!-- BEGIN SEARCH INPUT -->
@@ -26,6 +26,14 @@
               <!-- END SEARCH INPUT -->
               <% if params[:q].present? %>
                 <p>Exibindo resultados para a pesquisa "<%= params[:q] %>"</p>
+              <% end %>
+              <% if @start_date.present? && @end_date.present? %>
+                <span>
+                  Exibindo vagas entre
+                  <%= Date.parse(@start_date).strftime('%d/%m/%Y') %>
+                  e
+                  <%= Date.parse(@end_date).strftime('%d/%m/%Y') %>
+                </span>
               <% end %>
               <div class="py-3"></div>
               
