@@ -1,9 +1,9 @@
 class Vacancy < ApplicationRecord
   SOURCES = {
-    'frontendbr/vagas' => 'Front-End BR - Vagas',
-    'backend-br/vagas' => 'Back-End BR - Vagas',
-    'react-brasil/vagas' => 'React BR - Vagas',
-    'qa-brasil/vagas' => 'QA BR - Vagas'
+    "frontendbr/vagas" => "Front-End BR - Vagas",
+    "backend-br/vagas" => "Back-End BR - Vagas",
+    "react-brasil/vagas" => "React BR - Vagas",
+    "qa-brasil/vagas" => "QA BR - Vagas"
   }.freeze
 
   searchkick(

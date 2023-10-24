@@ -4,21 +4,21 @@ class VacancySearchPresenter
   attr_reader :options, :query
 
   def initialize(query: nil, options: {})
-    @query    = query.presence || '*'
-    @options  = options
+    @query = query.presence || "*"
+    @options = options
   end
 
   def search
     constraints = {
-      page: options[:page],      
-      per_page: 20,            
-      fields: [:title]           
+      page: options[:page],
+      per_page: 20,
+      fields: [:title]
     }
 
     constraints[:where] = where
     constraints[:order] = order
-    constraints[:aggs]  = aggs
-  
+    constraints[:aggs] = aggs
+
     Vacancy.search(query, **constraints)
   end
 
@@ -36,11 +36,11 @@ class VacancySearchPresenter
 
   def aggs
     {
-      labels: { order: { _key: 'asc' } } 
+      labels: {order: {_key: "asc"}}
     }
   end
 
   def order
-    default = { created_at: :desc } 
+    default = {created_at: :desc}
   end
 end
