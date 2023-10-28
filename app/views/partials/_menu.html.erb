@@ -38,7 +38,7 @@
           <i class="menu-icon fa-solid fa-calendar-days"></i>
           Data:
         </div>
-      <%= form_with url: vacancies_path, method: :get, local: true, id: 'dateForm' do |form| %>
+      <%= form_with url: vacancies_path, method: :get, local: true, id: 'dateForm', data: { turbo: "false" } do |form| %>
         De
         <div class="input-group date form_date">
           <input type="date" name="start_date" class="form-control" id="startDateInput">

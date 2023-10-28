@@ -5,7 +5,7 @@
 <hr>
 <!-- BEGIN FILTER BY DATE -->
 <h5>Data:</h5>
-<%= form_with url: vacancies_path, method: :get, local: true, id: 'dateForm' do |form| %>
+<%= form_with url: vacancies_path, method: :get, local: true, id: 'dateForm', data: { turbo: "false" } do |form| %>
   De
   <div class="input-group date form_date">
     <input type="date" name="start_date" class="form-control" id="startDateInput">
