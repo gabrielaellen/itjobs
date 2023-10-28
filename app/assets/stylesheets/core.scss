@@ -14856,7 +14856,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
   margin: 0.0625rem 0;
 }
 .menu-vertical .menu-inner > .menu-item .menu-link {
-  margin: 0rem 1rem;
+  margin: 0rem 0.5rem;
 }
 .menu-vertical .menu-item .menu-link,
 .menu-vertical .menu-block {
@@ -16408,4 +16408,8 @@ html:not(.layout-footer-fixed) .content-wrapper {
 }
 .footer.bg-light hr {
   border-color: rgba(105, 122, 141, 0.0783835294);
+}
+
+.margin-category {
+  margin-left: 3px
 }

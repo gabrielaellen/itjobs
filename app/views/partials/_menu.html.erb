@@ -19,7 +19,7 @@
     <li class="menu-item open" style="">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class=" menu-icon fa-solid fa-tags"></i>
-        <div>Categorias</div>
+        <div class="margin-category">Categorias</div>
       </a>
       <ul class="menu-sub">
         <% @vacancies.aggs['labels']['buckets'].sort_by{|label| label['doc_count'] }.reverse.each do |label| %>
@@ -31,7 +31,6 @@
         <% end %>
       </ul>
     </li>
-    <li class="menu-header small text-uppercase"><span class="menu-header-text"></span></li>
     <!-- Layouts -->
     <li class="menu-item">
       <div class="px-4">
