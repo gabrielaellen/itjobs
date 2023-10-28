@@ -14,4 +14,14 @@ bash:
 rebuild:
 	${DCMP} build
 dbcreate:
-	${DCMP_RUN_APP} bundle exec rails db:create  
+	${DCMP_RUN_APP} bundle exec rails db:drop
+dbcreate:
+	${DCMP_RUN_APP} bundle exec rails db:create
+dbmigrate:
+	${DCMP_RUN_APP} bundle exec rails db:migrate
+console:
+	${DCMP_RUN_APP} bundle exec rails console
+buildcss:
+	${DCMP_RUN_APP} yarn build:css
+buildjs:
+	${DCMP_EXEC_APP} yarn build
