@@ -1,3 +1,8 @@
+document.addEventListener("turbo:click", (event) => {
+  // Prevent Turbo from following the link
+  event.preventDefault();
+});
+
 document.addEventListener('turbo:load', function() {
   const startDateInput = document.getElementById('startDateInput');
   const endDateInput = document.getElementById('endDateInput');
@@ -14,3 +19,4 @@ document.addEventListener('turbo:load', function() {
   startDateInput.addEventListener('change', submitForm);
   endDateInput.addEventListener('change', submitForm);
 });
+
