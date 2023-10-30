@@ -57,7 +57,7 @@ gem "redcarpet"
 
 gem "searchkick"
 
-gem "elasticsearch"
+gem "elasticsearch", "< 7.14"
 
 gem "pagy"
 
