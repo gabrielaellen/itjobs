@@ -12,7 +12,7 @@ class PopulateVacanciesJob < ApplicationJob
       issues.each do |issue|
         vacancy = Vacancy.find_or_initialize_by(external_id: issue.id)
 
-        vacancy.external_id = issue.id
+        vacancy.external_id = issue.number
         vacancy.external_source = key
         vacancy.url = issue.html_url
         vacancy.title = issue.title
