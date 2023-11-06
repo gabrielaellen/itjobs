@@ -12,7 +12,7 @@ class VacancySearchPresenter
     constraints = {
       page: options[:page],
       per_page: 20,
-      fields: [:title]
+      fields: [:title, :labels]
     }
 
     constraints[:where] = where
