@@ -4,7 +4,7 @@ class PopulateVacanciesJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    client = Octokit::Client.new
+    client = Octokit::Client.new(auto_paginate: true)
 
     Vacancy::SOURCES.each do |key, value|
       issues = client.issues(key, state: "open")
@@ -25,6 +25,8 @@ class PopulateVacanciesJob < ApplicationJob
         vacancy.body = issue.body
 
         vacancy.save!
+      rescue => e
+        e
       end
     end
   end
